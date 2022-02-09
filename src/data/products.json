@@ -1,0 +1,111 @@
+[{
+    "title": "Nike Shoe",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e83cf0ca-15c8-4243-bdea-87f1a7f8b746/pegasus-trail-3-gore-tex-waterproof-trail-running-shoes-0kC2z5.png",
+    "categories": ["shoe","women"],
+    "size": ["m","s","l"],
+    "color": ["green","black","white","yellow","blue","red"],
+    "price":70
+    
+  },
+  {
+    "title": "Nike Hoodie",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "https://static.nike.com/a/images/c_limit,w_318,f_auto/t_product_v1/2e172bde-b059-44e3-8506-54d45e8cbc61/brooklyn-nets-nba-fleece-pullover-hoodie-0LpH41.png",
+    "categories": ["hoodie","men"],
+    "size": ["m","l"],
+    "color": ["black","white"],
+    "price": 100
+    
+  },
+  {
+    "title": "Good Coat",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/coat1.png",
+    "categories": ["women","coat"],
+    "size": ["m","s","l"],
+    "color": ["green","black","white","yellow","blue","red"],
+    "price": 103
+    
+  },
+  {
+    "title": "Good Coat2",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/coat2.png",
+    "categories": ["women","coat"],
+    "size": ["m","s","l"],
+    "color": ["green","black","white","yellow","blue","red"],
+    "price": 160
+    
+  },
+  {
+    "title": "Good Coat3",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/coat3.png",
+    "categories": ["women","coat"],
+    "size": ["m","s","l"],
+    "color": ["green","black"],
+    "price": 170
+    
+  },
+  {
+    "title": "Good Coat4",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/coat4.png",
+    "categories": ["men","coat"],
+    "size": ["m","s","l"],
+    "color": ["green","black","white","yellow","blue","red"],
+    "price": 100
+    
+  },
+  {
+    "title": "Good Coat5",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/coat5.png",
+    "categories": ["men","coat"],
+    "size": ["m","s","l"],
+    "color": ["green","black","white","yellow","blue","red"],
+    "price": 120
+    
+  },
+  {
+    "title": "Good Jeans",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/jean2.png",
+    "categories": ["men","jeans"],
+    "size": ["m","l"],
+    "color": ["black","blue"],
+    "price": 50
+    
+  },
+  {
+    "title": "Good Jeans2",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/jean3.png",
+    "categories": ["men","jeans"],
+    "size": ["m"],
+    "color": ["black","blue"],
+    "price": 78
+    
+  },
+  {
+    "title": "Good Jeans3",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/jean1.png",
+    "categories": ["women","jeans"],
+    "size": ["l"],
+    "color": ["black","blue"],
+    "price": 42
+    
+  },
+  {
+    "title": "Good Jeans4",
+    "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    "img": "images/jean4.png",
+    "categories": ["women","jeans"],
+    "size": ["m","s","l"],
+    "color": ["black","blue"],
+    "price": 35
+    
+  }
+]

@@ -4,6 +4,13 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { Add, Remove } from "@material-ui/icons"
 import { mobile } from "../responsive"
+import { useSelector } from "react-redux"
+import StripeCheckout from "react-stripe-checkout"
+import { useEffect, useState } from "react"
+import {userRequest} from "../requestMethods"
+import { useNavigate } from 'react-router-dom';
+
+const KEY = process.env.REACT_APP_STRIPE
 
 
 const  Container = styled.div`
@@ -142,7 +149,7 @@ const  SummaryItemText = styled.span`
 `
 const  SummaryItemPrice = styled.span`
 `
-const  SummaryButton = styled.button`
+const  Button = styled.button`
    width:100%;
    padding:10px;
    background-color:black;
@@ -151,6 +158,33 @@ const  SummaryButton = styled.button`
 `
 
 const Cart = () => {
+
+
+    const cart = useSelector(state=>state.cart)
+    const navigate = useNavigate()
+    const [stripeToken,setStripeToken] = useState(null)
+    
+    const onToken = (token) =>{
+        setStripeToken(token)
+    }
+
+    useEffect(()=>{
+        const makeRequest= async () =>{
+            try{
+                const res = await userRequest.post("/checkout/payment",{
+                    tokenId: stripeToken.id,
+                    amount: cart.totalPrice
+                })
+                navigate("/success",{state:res.data})
+
+            }catch(err){
+                console.log(err)
+            }
+        }
+        stripeToken &&   makeRequest()
+    },[stripeToken,cart.totalPrice,navigate])
+
+
   return <Container>
             <Navbar/>
             <Announcement/>
@@ -167,51 +201,36 @@ const Cart = () => {
                 <Bottom>
 
                     <Info>
-                        <Product>
+                        {cart.product.map(product=>(
+                            <Product>
                             <ProductDetail>
-                                <Image src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b72aa81e-f334-43d2-8e40-3ad10d382e7f/air-zoom-pegasus-38-ekiden-road-running-shoes-S0nz9k.png"/>
+                                <Image src={product.img}/>
                                 <Details>
-                                    <ProductName><b>Product:</b> NIKE SHOES </ProductName>
-                                    <ProductId><b>ID:</b>91619753</ProductId>
-                                    <ProductColor color='orange'/> 
-                                    <ProductSize><b>Size:</b>42</ProductSize>
+                                    <ProductName><b>Product:</b> {product.title} </ProductName>
+                                    <ProductId><b>ID:</b>{product._id}</ProductId>
+                                    <ProductColor color={product.color}/> 
+                                    <ProductSize><b>Size:</b>{product.size}</ProductSize>
                                 </Details>
                             </ProductDetail>
                             <PriceDetail>
                                 <ProductAmountContainer>
                                     <Add/>
-                                    <ProductAmount>3</ProductAmount>
+                                    <ProductAmount>{product.quantity}</ProductAmount>
                                     <Remove/>
                                 </ProductAmountContainer>
-                                <ProductPrice>$ 50</ProductPrice>
+                                <ProductPrice>$ {product.price*product.quantity}</ProductPrice>
                             </PriceDetail>
-                        </Product>
+                            </Product>
+                        ))
+                        }
                         <Hr/>
-                        <Product>
-                            <ProductDetail>
-                                <Image src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bf81bcf5-afda-4ce0-a6cf-1797b8132be4/air-huarache-shoes-Vdd6TS.png"/>
-                                <Details>
-                                    <ProductName><b>Product:</b> NIKE SHOES </ProductName>
-                                    <ProductId><b>ID:</b>91619753</ProductId>
-                                    <ProductColor color='black'/> 
-                                    <ProductSize><b>Size:</b>42</ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <Add/>
-                                    <ProductAmount>3</ProductAmount>
-                                    <Remove/>
-                                </ProductAmountContainer>
-                                <ProductPrice>$ 50</ProductPrice>
-                            </PriceDetail>
-                        </Product>
+                      
                     </Info>
                     <Summary>
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$ 80</SummaryItemPrice>
+                            <SummaryItemPrice>$ {cart.totalPrice}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Estimated Sgipping</SummaryItemText>
@@ -219,13 +238,24 @@ const Cart = () => {
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Shipping Discount</SummaryItemText>
-                            <SummaryItemPrice>$ -5.50</SummaryItemPrice>
+                            <SummaryItemPrice>$ -5.90</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem type="total">
                             <SummaryItemText >Total</SummaryItemText>
-                            <SummaryItemPrice>$ 80.40</SummaryItemPrice>
+                            <SummaryItemPrice>$ {cart.totalPrice}</SummaryItemPrice>
                         </SummaryItem>
-                        <SummaryButton>CHECKOUT</SummaryButton>
+                        <StripeCheckout
+                        name="Ardeshir Shop"
+                        image="https://avatars.githubusercontent.com/u/83403777?v=4"
+                        billingAddress
+                        shippingAddress
+                        description={`Your total is $${cart.totalPrice}`}
+                        amount={cart.totalPrice*100}
+                        token={onToken}
+                        stripeKey={KEY}
+                        >
+                            <Button>CHECKOUT NOW</Button>
+                        </StripeCheckout>
                     </Summary>
                 </Bottom>
             </Wrapper>
